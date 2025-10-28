@@ -6,7 +6,10 @@ from PIL import Image
 import io
 
 # Load Model
-MODEL_PATH = "lion_tiger_cnn.pth"
+import os
+
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "lion_tiger_cnn.pth")
+
 device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
 
 model = models.resnet18(weights=models.ResNet18_Weights.DEFAULT)
